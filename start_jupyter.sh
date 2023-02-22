@@ -1,7 +1,7 @@
 #!/bin/sh
-apt install git -y
-apt install wget -y
-apt install tmux -y
+sudo apt install git -y
+sudo apt install wget -y
+sudo apt install tmux -y
 #安装显卡驱动
 git config --global url."https://zyssyz123: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@github.com/".insteadOf "https://github.com/"
 wget  -P /root https://storage.googleapis.com/sos-aiplayground-operating-environment/environment-docker/install_gpu_driver.py
@@ -41,10 +41,10 @@ sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
 
 #登陆docker
-docker login --username=wen020 --password=dckr_pat_rGCOrzJBpSHAfIVUh3f2-1kQY74
+sudo docker login --username=wen020 --password=dckr_pat_rGCOrzJBpSHAfIVUh3f2-1kQY74
 
 #拉取image
-docker pull wen020/ml_server:jupyter
+sudo docker pull wen020/ml_server:jupyter
 
 #运行image
-docker run -tid -p 8888:8888 --env JUPYTER_PASSWORD='8glabs' --gpus all -v $PWD:/worksapce wen020/ml_server:jupyter
+sudo docker run -tid -p 8888:8888 --env JUPYTER_PASSWORD='8glabs' --gpus all -v $PWD:/worksapce wen020/ml_server:jupyter
